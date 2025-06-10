@@ -9,10 +9,8 @@ interface ProductCardProps {
   product: {
     id: string;
     name: string;
-    category: string;
     previewImage: string;
     totalItems: number;
-    price?: string;
   };
   onViewAll: (productId: string) => void;
 }
@@ -42,13 +40,6 @@ const ProductCard = ({ product, onViewAll }: ProductCardProps) => {
             {product.totalItems} items
           </Badge>
         </div>
-
-        {/* Category badge */}
-        <div className="absolute top-3 left-3">
-          <Badge className="bg-amber-500/90 backdrop-blur-sm text-white font-medium">
-            {product.category}
-          </Badge>
-        </div>
       </div>
 
       <div className="p-5">
@@ -56,11 +47,6 @@ const ProductCard = ({ product, onViewAll }: ProductCardProps) => {
           <h3 className="font-semibold text-lg text-slate-900 mb-1 line-clamp-1">
             {product.name}
           </h3>
-          {product.price && (
-            <p className="text-amber-600 font-bold text-lg">
-              {product.price}
-            </p>
-          )}
         </div>
 
         <Button 

@@ -2,15 +2,12 @@
 import { useState } from 'react';
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from '@/components/ui/dialog';
 import { Button } from '@/components/ui/button';
-import { Badge } from '@/components/ui/badge';
 import { ArrowRight, Images } from 'lucide-react';
 
 interface GalleryModalProps {
   product: {
     id: string;
     name: string;
-    category: string;
-    price?: string;
     images: string[];
     videos: string[];
   };
@@ -35,16 +32,6 @@ const GalleryModal = ({ product, isOpen, onClose }: GalleryModalProps) => {
               <DialogTitle className="text-2xl font-bold text-slate-900 mb-2">
                 {product.name}
               </DialogTitle>
-              <div className="flex items-center gap-3">
-                <Badge className="bg-amber-500 text-white">
-                  {product.category}
-                </Badge>
-                {product.price && (
-                  <span className="text-lg font-bold text-amber-600">
-                    {product.price}
-                  </span>
-                )}
-              </div>
             </div>
             <div className="text-sm text-slate-500">
               {selectedIndex + 1} / {allMedia.length}
